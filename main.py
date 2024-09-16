@@ -39,3 +39,14 @@ def concluir_tarefa():
             print(f"Tarefa '{tarefas[num]['nome']}' marcada como concluída.")
         else:
             print("Número inválido.")
+
+# Função para remover uma tarefa
+def remover_tarefa():
+    listar_tarefas()
+    if tarefas:
+        num = int(input("Digite o número da tarefa a ser removida: ")) - 1
+        if 0 <= num < len(tarefas):
+            removida = tarefas.pop(num)
+            print(f"Tarefa '{removida['nome']}' removida.")
+        else:
+            print("Número inválido.")
