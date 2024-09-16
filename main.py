@@ -28,3 +28,14 @@ def listar_tarefas():
         for i, tarefa in enumerate(tarefas):
             status = "Concluída" if tarefa["concluida"] else "Pendente"
             print(f"{i + 1}. {tarefa['nome']} [{status}]")
+
+# Função para marcar uma tarefa como concluída
+def concluir_tarefa():
+    listar_tarefas()
+    if tarefas:
+        num = int(input("Digite o número da tarefa a ser marcada como concluída: ")) - 1
+        if 0 <= num < len(tarefas):
+            tarefas[num]["concluida"] = True
+            print(f"Tarefa '{tarefas[num]['nome']}' marcada como concluída.")
+        else:
+            print("Número inválido.")
