@@ -2,6 +2,7 @@ import pytest
 from src.main import menu, adicionar_tarefa, listar_tarefas, concluir_tarefa, remover_tarefa, tarefas
 from unittest.mock import patch
 
+
 #Teste do menu
 def test_menu(capsys):
     # Chama a função que exibe o menu
