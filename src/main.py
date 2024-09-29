@@ -51,27 +51,31 @@ def remover_tarefa():
         else:
             print("Número inválido.")
 
-# Programa principal
-while True:
-    menu()
-    
-    escolha = input("Escolha uma opção (1/2/3/4/5): ")
+# Função que controla o fluxo principal (Modifiquei em razão de problemas nos testes)
+def main_loop():
+    while True:
+        menu()
+        escolha = input("Escolha uma opção (1/2/3/4/5): ")
 
-    if escolha == '1':
-        adicionar_tarefa()
-    
-    elif escolha == '2':
-        listar_tarefas()
-    
-    elif escolha == '3':
-        concluir_tarefa()
-    
-    elif escolha == '4':
-        remover_tarefa()
-    
-    elif escolha == '5':
-        print("Saindo do programa...")
-        break
-    
-    else:
-        print("Opção inválida. Tente novamente.")
+        if escolha == '1':
+            adicionar_tarefa()
+        
+        elif escolha == '2':
+            listar_tarefas()
+        
+        elif escolha == '3':
+            concluir_tarefa()
+        
+        elif escolha == '4':
+            remover_tarefa()
+        
+        elif escolha == '5':
+            print("Saindo do programa...")
+            break
+        
+        else:
+            print("Opção inválida. Tente novamente.")
+
+# Chama o loop principal somente quando o script é executado diretamente
+if __name__ == "__main__":
+    main_loop()
