@@ -1,5 +1,5 @@
 import pytest
-from src.main import *
+from src.main import menu, adicionar_tarefa, listar_tarefas, concluir_tarefa, remover_tarefa, tarefas
 from unittest.mock import patch
 
 #Teste do menu
@@ -41,22 +41,22 @@ def test_listar_tarefas_vazia(capsys):
 
 # Teste para a função de listar tarefas com tarefas adicionadas
 def test_listar_tarefas(capsys):
-    tarefas.append({"nome": "Estudar", "concluida": False})
+    tarefas.append({"nome": "Tarefa Teste", "concluida": False})
     listar_tarefas()
     captured = capsys.readouterr()
-    assert "1. Estudar [Pendente]" in captured.out
+    assert "1. Tarefa Teste [Pendente]" in captured.out
 
 # Teste para a função de concluir tarefa
 @patch('builtins.input', return_value="1")
 def test_concluir_tarefa(mock_input):
-    tarefas.append({"nome": "Estudar", "concluida": False})
+    tarefas.append({"nome": "Tarefa Teste", "concluida": False})
     concluir_tarefa()
     assert tarefas[0]["concluida"]
 
 # Teste para a função de concluir tarefa com índice inválido
 @patch('builtins.input', return_value="5")
 def test_concluir_tarefa_invalida(mock_input, capsys):
-    tarefas.append({"nome": "Estudar", "concluida": False})
+    tarefas.append({"nome": "Tarefa Teste", "concluida": False})
     concluir_tarefa()
     captured = capsys.readouterr()
     assert "Número inválido." in captured.out
@@ -65,14 +65,14 @@ def test_concluir_tarefa_invalida(mock_input, capsys):
 # Teste para a função de remover tarefa
 @patch('builtins.input', return_value="1")
 def test_remover_tarefa(mock_input):
-    tarefas.append({"nome": "Estudar", "concluida": False})
+    tarefas.append({"nome": "Tarefa Teste", "concluida": False})
     remover_tarefa()
     assert len(tarefas) == 0
 
 # Teste para a função de remover tarefa com índice inválido
 @patch('builtins.input', return_value="5")
 def test_remover_tarefa_invalida(mock_input, capsys):
-    tarefas.append({"nome": "Estudar", "concluida": False})
+    tarefas.append({"nome": "Tarefa Teste", "concluida": False})
     remover_tarefa()
     captured = capsys.readouterr()
     assert "Número inválido." in captured.out
