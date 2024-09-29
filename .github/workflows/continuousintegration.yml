@@ -15,7 +15,6 @@ jobs:
         with:
             linter: pylint
 
-
   testes:
     runs-on: ubuntu-latest
     steps:

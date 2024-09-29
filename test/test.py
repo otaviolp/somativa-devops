@@ -2,7 +2,6 @@ import pytest
 from src.main import *
 from unittest.mock import patch
 
-
 #Teste do menu
 def test_menu(capsys):
     # Chama a função que exibe o menu
